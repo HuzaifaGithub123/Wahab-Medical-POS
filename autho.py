@@ -61,12 +61,3 @@ if 'connection_result' not in st.session_state:
             "success": False,
             "error": e
         }
-
-# Display results (persistent)
-result = st.session_state.connection_result
-if result["success"]:
-    st.success(result["message"])
-    st.dataframe(result["data"] if result["data"] else "Sheet is empty")
-else:
-    st.error("❌ Failed to connect to Google Sheets.")
-    st.exception(result["error"])
