@@ -45,12 +45,10 @@ def get_sheet(sheet_name="Testing"):
     creds = Credentials.from_service_account_info(st.secrets["gspread"], scopes=scope)
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
-"""
+    
 # Connection test (runs only once)
 if 'connection_result' not in st.session_state:
     try:
-        sheet = get_sheet()
-        data = sheet.get_all_records()
         st.session_state.connection_result = {
             "success": True,
             "message": f"✅ Google Sheet connection successful!\n🔍 Found {len(data)} rows.",
