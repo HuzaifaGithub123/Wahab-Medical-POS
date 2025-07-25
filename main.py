@@ -1,4 +1,4 @@
-"""import streamlit as st
+import streamlit as st
 import data_entry
 import show_all
 import daily_sales
@@ -19,10 +19,7 @@ elif page == "Show All":
 elif page == "Daily Sales":
     daily_sales.run()
 
-
 """
-
-
 import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
@@ -49,3 +46,4 @@ try:
 except Exception as e:
     st.error("❌ Failed to connect to Google Sheets.")
     st.exception(e)
+"""
