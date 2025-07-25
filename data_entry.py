@@ -22,8 +22,3 @@ def run():
             sheet.append_row(new_row)
 
             st.success(f"{drug_name} Added Successfully")
-
-
-
-
-
