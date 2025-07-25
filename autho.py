@@ -12,31 +12,9 @@ def get_sheet(sheet_name="Testing"):
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
 
-# Connect only once
-if 'connection_result' not in st.session_state:
-    try:
-        sheet = get_sheet()
-        data = sheet.get_all_records()
-        st.session_state.connection_result = {
-            "success": True,
-            "message": f"✅ Google Sheet connection successful!\n🔍 Found {len(data)} rows.",
-            "data": data
-        }
-    except Exception as e:
-        st.session_state.connection_result = {
-            "success": False,
-            "error": e
-        }
-
-# Show title once
-if 'connection_checked' not in st.session_state:
-    st.title("🔗 Google Sheets Connection Test")
-    st.session_state.connection_checked = True
-
-# Display result
-if st.session_state.connection_result["success"]:
-    st.success(st.session_state.connection_result["message"])
-    st.dataframe(st.session_state.connection_result["data"])
-else:
-    st.error("❌ Failed to connect to Google Sheet.")
-    st.exception(st.session_state.connection_result["error"])
+# Just connect silently
+try:
+    sheet = get_sheet()
+    data = sheet.get_all_records()
+except:
+    pass  # No message, no output
