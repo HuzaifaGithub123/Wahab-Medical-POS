@@ -12,7 +12,7 @@ def get_sheet(sheet_name="Testing"):
     client = gspread.authorize(creds)
     sheet = client.open(sheet_name).sheet1
     return sheet
-
+"""
 # Try connecting and reading
 try:
     sheet = get_sheet()
@@ -24,3 +24,4 @@ try:
 except Exception as e:
     st.error("❌ Failed to connect to Google Sheets.")
     st.exception(e)
+"""
