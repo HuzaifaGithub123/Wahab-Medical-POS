@@ -45,7 +45,7 @@ def get_sheet(sheet_name="Testing"):
     creds = Credentials.from_service_account_info(st.secrets["gspread"], scopes=scope)
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
-
+"""
 # Connection test (runs only once)
 if 'connection_result' not in st.session_state:
     try:
