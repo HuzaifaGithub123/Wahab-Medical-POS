@@ -2,7 +2,6 @@ import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
 
-@st.cache_resource
 # Title
 st.title("Google Sheets Connection Test")
 
